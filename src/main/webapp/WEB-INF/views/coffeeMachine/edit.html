@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update coffeeMashine</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/coffeeMashine/{id}(id=${coffeeMachine.getId()})}" th:object="${coffeeMachine}">
+    <label for="nameOfTheDrink">Enter name of the drink: </label>
+    <input type="text" th:field="*{nameOfTheDrink}" id="nameOfTheDrink"/>
+    <div style="color:red" th:if="${#fields.hasErrors('nameOfTheDrink')}" th:errors="*{nameOfTheDrink}">Name Error</div>
+    <br/>
+    <label for="sortOfCoffee">Enter sort of coffee: </label>
+    <input type="text" th:field="*{sortOfCoffee}" id="sortOfCoffee"/>
+    <div style="color:red" th:if="${#fields.hasErrors('sortOfCoffee')}" th:errors="*{sortOfCoffee}">Sort Error</div>
+    <br/>
+    <label for="kindOfMilk">Enter email: </label>
+    <input type="text" th:field="*{kindOfMilk}" id="kindOfMilk"/>
+    <div style="color:red" th:if="${#fields.hasErrors('kindOfMilk')}" th:errors="*{kindOfMilk}">Milk Error</div>
+    <br/>
+    <label for="amountOfDrink">Enter amount of drink: </label>
+    <input type="text" th:field="*{amountOfDrink}" id="amountOfDrink"/>
+    <div style="color:red" th:if="${#fields.hasErrors('amountOfDrink')}" th:errors="*{amountOfDrink}">Milk Error</div>
+    <br/>
+    <label for="amountOfCofee">Enter amount of coffee: </label>
+    <input type="text" th:field="*{amountOfCoffee}" id="amountOfCofee"/>
+    <div style="color:red" th:if="${#fields.hasErrors('amountOfCofee')}" th:errors="*{amountOfCoffee}">Milk Error</div>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>
