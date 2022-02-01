@@ -12,6 +12,7 @@ import java.util.List;
 
 @Component
 public class CoffeeMachineDAO {
+    private static int MACHINE_COUNT;
     /*private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String USERNAME = "postgres";
     private static final String PASSWORD = "Ca57wlzq";
@@ -63,6 +64,12 @@ public class CoffeeMachineDAO {
         return jdbcTemplate.query("SELECT * FROM coffeeMachine3", new CoffeeMachineMapper());
     }
 
+    public List<CoffeeMachine> indexRequest(){
+        return jdbcTemplate.query("SELECT * FROM coffeeMachine3 WHERE sortOfCoffee = 'arabica' OR " +
+                "sortOfCoffee = 'Arabica' AND kindOfMilk = 'soy milk' OR kindOfMilk = 'Soy milk' " +
+                "AND amountOfDrink >= 0.5 AND amountOfDrink <=1.0", new CoffeeMachineMapper());
+    }
+
     public CoffeeMachine show(int id) {
         /*CoffeeMachine coffeeMachine = null;
         try {
@@ -105,7 +112,10 @@ public class CoffeeMachineDAO {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }*/
-        jdbcTemplate.update("NSERT INTO coffeeMachine3 VALUES(1, ?, ?, ?, ?, ?)", coffeeMachine.getNameOfTheDrink(),
+
+        jdbcTemplate.update("INSERT INTO coffeeMachine3 VALUES(?, ?, ?, ?, ?, ?)",
+                coffeeMachine.getId(),
+                coffeeMachine.getNameOfTheDrink(),
                 coffeeMachine.getSortOfCoffee(),
                 coffeeMachine.getKindOfMilk(),
                 coffeeMachine.getAmountOfDrink(),

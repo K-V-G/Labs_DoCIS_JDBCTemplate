@@ -5,17 +5,19 @@
     <title>Main Site</title>
 </head>
 <body>
-<h1>Welcome</h1>
+<h1>Well</h1>
 <h2>Your drinks: </h2>
 <div th:each="coffee : ${coffeeMachine}">
-    <a th:href="@{/coffeeMachine/{id}(id=${coffee.getId()})}"
+    <a th:href="@{/coffeeMachine/index/{id}(id=${coffee.getId()})}"
        th:text="${coffee.getId() + ', ' + coffee.getNameOfTheDrink()}">user</a>
 </div>
 
 <br/>
+<form th:method="GET" th:action="@{/coffeeMachine}">
+    <input type="submit" value="Go back"/>
+</form>
+<br/>
 <hr/>
-
-<a href="/coffeeMachine/new">Create new person</a>
 
 </body>
 </html>

@@ -4,7 +4,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 public class CoffeeMachine {
-    @NotEmpty(message = "id should not be empty")
     @Min(value = 0, message = "Id should be greater than 0")
     private int id;
     @NotEmpty(message = "Name of the drink should not be empty")
@@ -12,19 +11,17 @@ public class CoffeeMachine {
     @NotEmpty(message = "sort of coffee should not be empty")
     private String sortOfCoffee;
     private String kindOfMilk;
-    @NotEmpty(message = "amount of drink should not be empty")
     private double amountOfDrink;
-    @NotEmpty(message = "amount of coffee should not be empty")
     private int amountOfCoffee;
 
     CoffeeMachine(int id, String nameOfTheDrink, String sortOfCoffee, String kindOfMilk, double amountOfDrink,
-                  int amountOfCofee){
+                  int amountOfCoffee){
         this.id = id;
         this.nameOfTheDrink = nameOfTheDrink;
         this.sortOfCoffee = sortOfCoffee;
         this.kindOfMilk = kindOfMilk;
         this.amountOfDrink = amountOfDrink;
-        this.amountOfCoffee = amountOfCofee;
+        this.amountOfCoffee = amountOfCoffee;
     }
 
     public CoffeeMachine(){
@@ -45,8 +42,8 @@ public class CoffeeMachine {
     public void setAmountOfDrink(double amountOfDrink){
         this.amountOfDrink = amountOfDrink;
     }
-    public void setAmountOfCoffee(int amountOfCofee){
-        this.amountOfCoffee = amountOfCofee;
+    public void setAmountOfCoffee(int amountOfCoffee){
+        this.amountOfCoffee = amountOfCoffee;
     }
     public int getId(){
         return id;

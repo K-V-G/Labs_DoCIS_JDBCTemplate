@@ -20,20 +20,30 @@ public class CoffeeMachineController {
     public CoffeeMachineController(CoffeeMachineDAO coffeeMachineDAO){
         this.coffeeMachineDAO = coffeeMachineDAO;
     }
-
-    @GetMapping()
-    public String index(Model model){
+   @GetMapping()
+   public String main(Model model){
+       model.addAttribute("coffeeMachine", coffeeMachineDAO.index());
+       return "coffeeMachine/main";
+       }
+    @GetMapping("/index")
+    public String index(Model model) {
         model.addAttribute("coffeeMachine", coffeeMachineDAO.index());
         return "coffeeMachine/index";
     }
-    @GetMapping("/{id}")
+    @GetMapping("/indexRequest")
+    public String indexRequest(Model model)
+    {
+        model.addAttribute("coffeeMachine", coffeeMachineDAO.indexRequest());
+        return "coffeeMachine/indexRequest";
+    }
+    @GetMapping("/index/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("coffeeMachine", coffeeMachineDAO.show(id));
         return "coffeeMachine/show";
     }
 
     @GetMapping("/new")
-    public String newPerson(@ModelAttribute("coffeeMachine") CoffeeMachine coffeeMachine) {
+    public String newCoffee(@ModelAttribute("coffeeMachine") CoffeeMachine coffeeMachine) {
         return "coffeeMachine/new";
     }
 
@@ -47,13 +57,13 @@ public class CoffeeMachineController {
         return "redirect:/coffeeMachine";
     }
 
-    @GetMapping("/{id}/edit")
+    @GetMapping("/index/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("coffeeMachine", coffeeMachineDAO.show(id));
         return "coffeeMachine/edit";
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/index/{id}")
     public String update(@ModelAttribute("coffeeMachine") @Valid CoffeeMachine coffeeMachine,
                          BindingResult bindingResult,
                          @PathVariable("id") int id) {
@@ -64,7 +74,7 @@ public class CoffeeMachineController {
         return "redirect:/coffeeMachine";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/index/{id}")
     public String delete(@PathVariable("id") int id) {
         coffeeMachineDAO.delete(id);
         return "redirect:/coffeeMachine";

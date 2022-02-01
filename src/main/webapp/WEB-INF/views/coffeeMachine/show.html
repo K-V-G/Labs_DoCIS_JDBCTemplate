@@ -12,10 +12,17 @@ coffeeMachine.getKindOfMilk()}">VALUE</p>
 <p th:text="${'Amount of drink: ' + coffeeMachine.getAmountOfDrink() + ', ' + 'amount of coffee: ' +
 coffeeMachine.getAmountOfCoffee()}">VALUE</p>
 
-<a th:href="@{/coffeeMashine/{id}/edit(id=${coffeeMachine.getId()})}">Edit?</a>
 
-<form th:method="DELETE" th:action="@{/coffeeMachine/{id}(id=${coffeeMachine.getId()})}">
+<form th:method="GET" th:action="@{/coffeeMachine/index/{id}/edit(id=${coffeeMachine.getId()})}">
+    <input type="submit" value="Upgrade"/>
+</form>
+<br>
+<form th:method="DELETE" th:action="@{/coffeeMachine/index/{id}(id=${coffeeMachine.getId()})}">
     <input type="submit" value="Delete"/>
+</form>
+<br>
+<form th:method="GET" th:action="@{/coffeeMachine/index}">
+    <input type="submit" value="Go back"/>
 </form>
 </body>
 </html>
