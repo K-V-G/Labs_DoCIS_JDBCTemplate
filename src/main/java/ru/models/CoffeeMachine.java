@@ -25,8 +25,14 @@ public class CoffeeMachine {
     }
 
     public CoffeeMachine(){
-
+        id = 0;
+        nameOfTheDrink = "cappucino";
+        sortOfCoffee = "arabica";
+        kindOfMilk = "3.2";
+        amountOfDrink = 0.3;
+        amountOfCoffee = 1;
     }
+
     public void setId(int id){
         this.id = id;
     }
