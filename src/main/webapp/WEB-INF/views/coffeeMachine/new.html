@@ -14,13 +14,10 @@
 <body style="margin: 20px; border: 4px dashed black;">
 
 <form th:method="POST" th:action="@{/coffeeMachine}" th:object="${coffeeMachine}">
-<<<<<<< HEAD
     <label for="id">Enter id of the drink: </label>
     <input type="text" th:field="*{id}" id="id"/>
     <div style="color:red" th:if="${#fields.hasErrors('id')}" th:errors="*{nameOfTheDrink}">Name Error</div>
     <br><br>
-=======
->>>>>>> 1ba65d6a8c52044ef623ca2764b8dd48e140206e
     <label for="nameOfTheDrink">Enter name of the drink: </label>
     <input type="text" th:field="*{nameOfTheDrink}" id="nameOfTheDrink"/>
     <div style="color:red" th:if="${#fields.hasErrors('nameOfTheDrink')}" th:errors="*{nameOfTheDrink}">Name Error</div>
@@ -36,11 +33,7 @@
     <label for="amountOfDrink">Enter amount of drink: </label>
     <input type="text" th:field="*{amountOfDrink}" id="amountOfDrink"/>
     <div style="color:red" th:if="${#fields.hasErrors('amountOfDrink')}" th:errors="*{amountOfDrink}">Amount of drink Error</div>
-<<<<<<< HEAD
     <br/><br>
-=======
-    <br/>
->>>>>>> 1ba65d6a8c52044ef623ca2764b8dd48e140206e
     <label for="amountOfCoffee">Enter amount of coffee: </label>
     <input type="text" th:field="*{amountOfCoffee}" id="amountOfCoffee"/>
     <div style="color:red" th:if="${#fields.hasErrors('amountOfCoffee')}" th:errors="*{amountOfCoffee}">Amount of coffee Error</div>

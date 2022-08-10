@@ -20,11 +20,11 @@ public class CoffeeMachineController {
     public CoffeeMachineController(CoffeeMachineDAO coffeeMachineDAO){
         this.coffeeMachineDAO = coffeeMachineDAO;
     }
-   @GetMapping()
-   public String main(Model model){
-       model.addAttribute("coffeeMachine", coffeeMachineDAO.index());
-       return "coffeeMachine/main";
-       }
+    @GetMapping()
+    public String main(Model model){
+        model.addAttribute("coffeeMachine", coffeeMachineDAO.index());
+        return "coffeeMachine/main";
+    }
     @GetMapping("/index")
     public String index(Model model) {
         model.addAttribute("coffeeMachine", coffeeMachineDAO.index());
